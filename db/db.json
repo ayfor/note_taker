@@ -1,14 +1,1 @@
-[
-    {
-        "title":"Test Title",
-        "text":"Test text"
-    },
-    {
-        "title":"Test Title2",
-        "text":"Test text"
-    },
-    {
-        "title":"Test Title3",
-        "text":"Test text"
-    }
-]
+[{"title":"This is a new note","text":"new shiny note","id":"rgqkq0cq003"},{"title":"New Note!","text":"This is also a new note","id":"rmakq0cv4yc"},{"title":"New Note?","text":"This is also a new note?","id":"rnvkq0cwdr7"}]

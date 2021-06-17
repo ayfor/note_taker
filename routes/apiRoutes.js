@@ -4,13 +4,21 @@ const idGenerator = require('uniqid')
 
 const data = require('../db/db.json');
 
+function updateData() {
+    fs.writeFile('./db/db.json', JSON.stringify(data),(err)=>{
+        if(err){
+            console.log(err);
+        }
+    });
+}
 
 module.exports = (app) => {
 
     app.get('/api/notes' , (req, res) =>{
         //console.log(data);
-        console.log('reading notes...')
         res.json(data);
+
+        updateData();
     });
 
     app.post('/api/notes', (req, res) => {
@@ -25,6 +33,29 @@ module.exports = (app) => {
 
         //Return new note object
         res.json(req.body);
-    })
+
+        updateData();
+    });
+
+    app.delete('/api/notes/:id', (req, res)=>{
+        let removeId = req.params.id;
+        //console.log(removeId);
+        for (let index = 0; index < data.length; index++) {
+            const element = data[index];
+
+            if(element.id===removeId){
+                data.splice(index,1);
+            }
+            
+        }
+
+        res.json(data);
+
+        updateData();
+    });
+        
+
+        
+    
 
 }
